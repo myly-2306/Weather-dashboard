@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.7.1/dist/css/uikit.min.css" />
+    <title>Weather Dashboard</title>
+</head>
+
+<body>
+    <div class="uk-inline uk-margin">
+        <h1>Weather Dashboard</h1>
+    </div>    
+    <div >
+        <div class="uk-child-width-1-3@m uk-grid-small uk-grid-match" uk-grid>
+            <!-- <h2 class="uk-stacked">Search for a City:</h2> -->
+            <div>
+                <div class="uk-card uk-card-default uk-card-body">
+                    <h3 class="uk-card-title">Search for a City</h3>
+                    <form class="uk-form-stacked">
+                        <div class="uk-margin">
+                            
+                            <div class="uk-form-controls">
+                                <input class="search-input uk-input" id="form-stacked-text" name="search-input" type="text" placeholder="City...">
+                            </div>
+                        </div>
+                    </form>
+                    <button id="search-btn" class="uk-button uk-button-secondary">Go</button>
+                    <table class="uk-table uk-table-divider">
+                        <tbody id="city-table">
+                            <!-- <tr>
+                                <td></td>
+                            </tr> -->
+                            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="uk-width-expand@m">
+                <div id="current-display" class="uk-card uk-card-default uk-card-body">
+                    <ul>
+                    </ul>
+                </div>
+                <div class="uk-width-expand@m">
+                    <div class="uk-card uk-card-default uk-card-body">Expand</div>
+                </div>
+            </div>
+            
+            
+            <!-- <form>
+                <h2>Search for a City:</h2>
+                <input >
+                <img data-src="image/photo-1564241808878-2ae9104d10e5.jpg" width="1000" uk-img>
+            </form>
+            <a href="#about">About</a> -->
+            <!-- <a href="#services">Services</a>   
+            <a href="#clients">Clients</a>
+            <a href="#contact">Contact</a> -->
+        </div>
+        
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.7.1/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.7.1/dist/js/uikit-icons.min.js"></script>
+    <script src="script.js"></script>
+    <script src="display.js"></script>
+</body>
+
+</html>  
