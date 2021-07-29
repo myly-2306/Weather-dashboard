@@ -6,27 +6,62 @@ var userInput;
 var cityInput = document.querySelector('.search-input');
 var searchBtn = document.querySelector("#search-btn");
 var tableBody = document.querySelector('#city-table');
-var currentDisplay = document.querySelector('ul');
+var currentDisplay = document.querySelector('#current-display');
 
-searchBtn.addEventListener("click", function(){
+var currentTemp = document.querySelector("#current-temp");
+var currentWind = document.querySelector("#current-wind");
+var currentHumi = document.querySelector("#current-humi");
+var uv = document.querySelector("#uv");
+
+
+
+// function getApi(){
     var cityVal = inputCity.value;
     var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + cityVal + "&appid=" + APIKey;
     fetch (queryURL)
-    .then(response => response.json())
-    .then(data => {
-        for (var i = 0; i < data.length; i++) {
-            var name = document.createElement("h3");
-            var temp = document.createElement("li");
-            var wind = document.createElement("li");
-            var humidity = document.createElement("li");
-            name.textContent = data[i].name;
-            currentDisplay.appendChild(name);
-        }
-    }) 
+        .then(response => response.json())
+        .then(data => {
+            
+                console.log(data);
+                currentDisplay.textContent = data.name;
 
-.catch(err => alert("Please search for a valid city 😩"))
-})
+                var latitude = response.city.coord.lat;
+                var longitude = response.city.coord.lon;
+                console.log(latitude, longitude);
 
+                var uvIndexURL = "api.openweathermap.org/data/2.5/weather?lat=" + latitude + "&lon=" + longitude + "&appid=" + APIKey;
+        fetch (uvIndexURL)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+            })
+        }) 
+
+    
+        
+    // }
+    
+
+// .catch(err => alert("Please search for a valid city 😩"))
+
+
+
+// searchBtn.addEventListener("click", getApi);
+
+// var uvIndexURL = "api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&appid=" + APIKey;
+// fetch (uvIndexURL)
+//     .then(response => response.json())
+//     .then(data => {
+//         console.log(data);
+//     })
+
+
+
+
+
+// var temp = document.createElement("li");
+//             var wind = document.createElement("li");
+//             var humidity = document.createElement("li");
 
 // display weather data 
 
