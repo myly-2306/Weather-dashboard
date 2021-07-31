@@ -1,33 +1,32 @@
-// submit buuton on index.html will
-// location.assign to display.html
-// display search city to display.html
-var searchBtn = document.querySelector("#search-btn");
-
-// searchBtn.addEventListener("submit", getDisplay)
-// function getDisplay(event) {
-//     event.preventDefault();
-
-//     var searchInputVal = document.querySelector('.search-input').value;
-// }
-
 
 var APIKey = "558b53371eed05eba4d08b50a0e52a42";
+var userInput;
 
 var inputCity = document.querySelector(".search-input");
+var searchBtn = document.querySelector("#search-btn");
+var tableBody = document.querySelector("#city-table");
+var currentDisplay = document.querySelector("#current-display");
 
+var currentTemp = document.querySelector("#current-temp");
+var currentWind = document.querySelector("#current-wind");
+var currentHumi = document.querySelector("#current-humi");
+var uv = document.querySelector("#uv");
 
-
-searchBtn.addEventListener("click", function(){
+searchBtn.addEventListener("submit", handleSearchButton)
+function handleSearchButton(e) {
+    e.preventDefault();
     var cityVal = inputCity.value;
-    var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + cityVal + "&appid=" + APIKey;
-    fetch (queryURL)
-    .then(response => response.json())
-    .then(data => console.log(data))
 
-.catch(err => alert("Please search for a valid city 😩"))
-})
+    if (!city) {
+        console.error('You need a search input value!');
+        return;
+    }
 
-
-// searchBtn.addEventListener("click", function(){
-//     document.location.assign('display.html')
-// })
+    var queryURL =
+    "https://api.openweathermap.org/data/2.5/weather?q=" +
+    cityVal +
+    "&appid=" +
+    APIKey;
+    
+    location.assign(queryURL);
+};

@@ -29,6 +29,9 @@ function getApi() {
 
       console.log(data);
       currentDisplay.textContent = data.name;
+    //   tableBody.textContent = data.name;
+      // tableBody.append("<href>" + data.name + "</href>");
+      tableBody.href = data.name;
 
       console.log(lat, lon);
 
@@ -43,8 +46,23 @@ function getApi() {
         .then((response) => response.json())
         .then((data) => {
           console.log(data);
-          currentTemp.textContent = "Temp:" + data.current.temp;
-          currentWind.textContent = "Wind Speed:" + " " + data.current.wind_gust + "MPH";
+          currentTemp.textContent = "Temp:" + " " + data.current.temp + "\xB0F";
+          currentWind.textContent = "Wind Speed:" + " " + data.current.wind_speed + "MPH";
+          currentHumi.textContent = "Humidity:" + " " + data.current.humidity;
+          uv.textContent = "UV Index:" + " " + data.current.uvi;
+          // var uvIndex = data.current.uvi; 
+          // var uvValue = $("<p>" + uvIndex + "</p>");
+          //           if (uvIndex <= 3) {
+          //               uvValue.addClass("favorable");
+          //           } else if (uvIndex > 3 && uvIndex <= 6) {
+          //               uvValue.addClass("moderate");
+          //           } else {
+          //               uvValue.addClass("severe");
+          //           }
+
+          //           weatherDiv.append(uvValue);
+
+
           renderFiveDayForecast(data.daily);
         });
     });
@@ -58,14 +76,34 @@ searchBtn.addEventListener("click", getApi);
 
 function renderFiveDayForecast(daily) {
     var day;
-    var dayImage;
+    var iconImage;
+    var dayTemp;
+    var dayWind;
+    var dayHumi;
     console.log(daily);
     for (let i = 1; i <= 5; i++) {
         day = document.querySelector("#day" + i);
         day.innerHTML = moment.unix(daily[i].dt).format("MM/DD/YYYY");
-        dayImage = document.querySelector('#dayicon' + i);
-        var iconurl = 'http://openweathermap.org/img/wn/' + daily[i].weather[0].icon + '@2x.png';
-        dayImage.setAttribute('src', iconurl);
 
+        // dayImage = document.querySelector('#dayicon' + i);
+        // var iconurl = 'http://openweathermap.org/img/wn/' + daily[i].weather[0].icon + '@2x.png';
+        // dayImage.setAttribute('src', iconurl);
+
+        iconImage = document.querySelector("#iconimage" +i);
+        iconImage.src = 'http://openweathermap.org/img/wn/' + daily[i].weather[0].icon + '@2x.png';
+
+        dayTemp = document.querySelector("#day-temp" +i);
+        dayTemp.textContent = "Temp:" + " " + daily[i].temp.day + "\xB0F";
+
+        dayWind = document.querySelector("#day-wind" +i);
+        dayWind.textContent = "Wind:" + " " + daily[i].wind_speed + " " + "MPH";
+
+        dayHumi = document.querySelector("#day-humi" +i);
+        dayHumi.textContent = "Humidity:" + " " + daily[i].humidity;
     }
 }
+
+
+// function searchhistory () {
+
+// }
