@@ -13,4 +13,4 @@ Down below the current section is presented with weather data in the next 5 cont
 
 ## Link
 * [See Live Site](https://myly-2306.github.io/Weather-dashboard/)
-* [Link to GitHub Repo] (https://github.com/myly-2306/Weather-dashboard)
+* [Link to GitHub Repo](https://github.com/myly-2306/Weather-dashboard)
