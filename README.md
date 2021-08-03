@@ -12,5 +12,5 @@ Down below the current section is presented with weather data in the next 5 cont
 ![Screenshot of Deployed Application] ![image](https://user-images.githubusercontent.com/83524121/127967564-c218b17c-3d87-4856-aab5-b556df789bc5.png)
 
 ## Link
-* [See Live Site]
+* [See Live Site](https://myly-2306.github.io/Weather-dashboard/)
 * [Link to GitHub Repo]
