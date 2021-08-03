@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.7.1/dist/css/uikit.min.css" />
+    <link rel="stylesheet" href="style.css" />
     <title>Weather Dashboard</title>
 </head>
 
@@ -51,7 +52,7 @@
                 <div class="uk-width-expand@m">
                     <div class="uk-card uk-card-default uk-card-body">
                         <h2>5 Days Forecast</h2>
-                        <div>
+                        <div class="uk-align-left uk-margin-remove-adjacent">
                             <h4 id="day1"></h4>
                             <div>
                                 <img id="iconimage1" src=""></img>
@@ -60,7 +61,7 @@
                             <p id="day-wind1"></p>
                             <p id="day-humi1"></p>
                         </div>
-                        <div>
+                        <div class="uk-align-left uk-margin-remove-adjacent">
                             <h4 id="day2"></h4>
                             <div>
                                 <img id="iconimage2" src=""></img>
@@ -69,7 +70,7 @@
                             <p id="day-wind2"></p>
                             <p id="day-humi2"></p>
                         </div>
-                        <div>
+                        <div class="uk-align-left uk-margin-remove-adjacent">
                             <h4 id="day3"></h4>
                             <div>
                                 <img id="iconimage3" src=""></img>
@@ -78,9 +79,9 @@
                             <p id="day-wind3"></p>
                             <p id="day-humi3"></p>
                         </div>
-                        <div>
+                        <div class="uk-align-left uk-margin-remove-adjacent">
                             <h4 id="day4"></h4>
-                            <div>
+                            <div> 
                                 <img id="iconimage4" src=""></img>
                             </div>
                             <p id="day-temp4"></p>
@@ -111,8 +112,9 @@
     <script>
         moment().format();
     </script>
-    <script src="script.js"></script>
     <script src="display.js"></script>
+    <!-- <script src="script.js"></script> -->
+    
 </body>
 
 </html>  

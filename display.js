@@ -12,7 +12,7 @@ var currentHumi = document.querySelector("#current-humi");
 var uv = document.querySelector("#uv");
 
 function getApi() {
-  var cityVal = inputCity.value;
+  var cityVal = cityInput.value;
   
   var queryURL =
     "https://api.openweathermap.org/data/2.5/weather?q=" +
@@ -24,22 +24,23 @@ function getApi() {
     .then((response) => response.json())
 
     .then((data) => {
-      var lat = data.coord.lat;
-      var lon = data.coord.lon;
-
       console.log(data);
+      var latitude = data.coord.lat;
+      var longitude = data.coord.lon;
+
+      
       currentDisplay.textContent = data.name;
     //   tableBody.textContent = data.name;
       // tableBody.append("<href>" + data.name + "</href>");
-      tableBody.href = data.name;
+      // tableBody.href = data.name;
 
-      console.log(lat, lon);
+      console.log(latitude, longitude);
 
       const uvIndexURL =
         "https://api.openweathermap.org/data/2.5/onecall?lat=" +
-        lat +
+        latitude +
         "&lon=" +
-        lon +
+        longitude +
         "&exclude=minutely,hourly,alerts&units=imperial&appid=" +
         APIKey;
       fetch(uvIndexURL)
@@ -50,17 +51,15 @@ function getApi() {
           currentWind.textContent = "Wind Speed:" + " " + data.current.wind_speed + "MPH";
           currentHumi.textContent = "Humidity:" + " " + data.current.humidity;
           uv.textContent = "UV Index:" + " " + data.current.uvi;
-          // var uvIndex = data.current.uvi; 
-          // var uvValue = $("<p>" + uvIndex + "</p>");
-          //           if (uvIndex <= 3) {
-          //               uvValue.addClass("favorable");
-          //           } else if (uvIndex > 3 && uvIndex <= 6) {
-          //               uvValue.addClass("moderate");
-          //           } else {
-          //               uvValue.addClass("severe");
-          //           }
-
-          //           weatherDiv.append(uvValue);
+          
+          var uvIndex = uv.textContent;
+          if (uvIndex <= 3) {
+                uv.classList.add("favorable");
+            } else if (uvIndex > 3 && uvIndex <= 6) {
+                uv.classList.add("moderate");
+            } else {
+                uv.classList.add("severe");
+            }
 
 
           renderFiveDayForecast(data.daily);
@@ -71,6 +70,8 @@ function getApi() {
 // .catch(err => alert("Please search for a valid city 😩"))
 
 searchBtn.addEventListener("click", getApi);
+
+
 
 
 

@@ -1,0 +1,16 @@
+.favorable {
+    background: rgb(79, 159, 79);
+    display: inline-block;
+}
+
+.moderate {
+    background: rgb(237, 174, 57);
+    display: inline-block;
+
+}
+
+.severe {
+    background: rgb(201, 27, 27);
+    display: inline-block;
+
+}
