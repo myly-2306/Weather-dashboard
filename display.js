@@ -14,6 +14,7 @@ var uv = document.querySelector("#uv");
 function getApi() {
   var cityVal = cityInput.value;
   
+  
   var queryURL =
     "https://api.openweathermap.org/data/2.5/weather?q=" +
     cityVal +
@@ -27,7 +28,7 @@ function getApi() {
       console.log(data);
       var latitude = data.coord.lat;
       var longitude = data.coord.lon;
-
+    
       
       currentDisplay.textContent = data.name;
     //   tableBody.textContent = data.name;
@@ -52,10 +53,9 @@ function getApi() {
           currentHumi.textContent = "Humidity:" + " " + data.current.humidity;
           uv.textContent = "UV Index:" + " " + data.current.uvi;
           
-          var uvIndex = uv.textContent;
-          if (uvIndex <= 3) {
+          if (data.current.uvi < 3) {
                 uv.classList.add("favorable");
-            } else if (uvIndex > 3 && uvIndex <= 6) {
+            } else if (data.current.uvi > 3 && data.current.uvi <= 6) {
                 uv.classList.add("moderate");
             } else {
                 uv.classList.add("severe");
@@ -67,7 +67,7 @@ function getApi() {
     });
 }
 
-// .catch(err => alert("Please search for a valid city 😩"))
+
 
 searchBtn.addEventListener("click", getApi);
 
